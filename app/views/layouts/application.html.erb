@@ -19,7 +19,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-        <a class="navbar-brand" href="<%= root_url %>"/>Home</a>
+        <a class="navbar-brand" href="<%= '/' %>"/>Home</a>
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
@@ -31,6 +31,12 @@
 
     <!-- content -->
     <div class="container"  role="main">
+
+      <% if current_user %>
+       <%= current_user.name %> , welcome to the park!| <%= link_to "Logout", '/logout' %>
+      <% else %>
+       <%= link_to 'Login', '/login' %> | <%= link_to 'Signup', '/signup' %>
+      <% end %>
       <%= yield %>
     </div>
 
