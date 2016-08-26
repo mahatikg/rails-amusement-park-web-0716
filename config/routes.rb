@@ -3,8 +3,8 @@ Rails.application.routes.draw do
 
   get '/' => 'sessions#welcome'
 
-  get '/login' => 'sessions#new', as: 'login'
-  post '/login' => 'sessions#create'
+  get '/signin' => 'sessions#new', as: 'login'
+  post '/signin' => 'sessions#create'
   delete '/logout' => 'sessions#destroy'
 
 

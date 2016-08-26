@@ -10,11 +10,10 @@ class SessionsController < ApplicationController
 
   def create
     user = User.find_by(params[:user][:name])
-# binding.pry
-    if user && user.authenticate(params[:user][:password_digest])
+    if user && user.authenticate(params[:password_digest])
       session[:user_id] = user.id
-      flash[:notice] ="Hello"
-      redirect_to user_path(@user)
+      flash[:notice] ="Welcome"
+      redirect_to user_path(user)
 
     else
       render :new

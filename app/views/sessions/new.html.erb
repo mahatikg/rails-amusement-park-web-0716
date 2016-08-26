@@ -1,9 +1,9 @@
-<h1>Login</h1>
+<h1>Sign in</h1>
 
-<%= form_tag '/login' do %>
-
- Name: <%= text_field_tag 'user[:name]' %>
- Password: <%= password_field_tag :password %>
- <%= submit_tag "Submit" %>
-
+<%= form_for @session do |f| %>
+<%= f.label :name %>
+<%= f.text_field :name %>
+<%= f.label :password_digest %>
+<%= f.password_field :password_digest %>
+<%= f.submit "Submit" %>
 <% end %>
