@@ -7,14 +7,18 @@ class Ride < ActiveRecord::Base
       # the happiness of the user is changed
       # binding.pry
       self.user.happiness = (self.user.happiness) + (self.attraction.happiness_rating)
-      # the nausea of the self.user is changed
+# binding.pry
+      # self.user.happiness += self.attraction.happiness_rating
+
       self.user.nausea = (self.user.nausea) + (self.attraction.nausea_rating)
-      # the amount of tickets the self.user has is changed
+
       self.user.tickets = (self.user.tickets) - (self.attraction.tickets)
+
       self.user.save
     else
        user_no_ride_ticket
      end
+
   end
 
   def user_can_ride?

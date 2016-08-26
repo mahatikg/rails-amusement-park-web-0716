@@ -33,7 +33,7 @@
     <div class="container"  role="main">
 
       <% if current_user %>
-       <%= current_user.name %> , welcome to the park!| <%= link_to "Logout", '/logout' %>
+       <%= current_user.name %> , welcome to the park!| <%= link_to "Logout", '/logout', method: :delete%>
       <% else %>
        <%= link_to 'Login', '/login' %> | <%= link_to 'Signup', '/signup' %>
       <% end %>
