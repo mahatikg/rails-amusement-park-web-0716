@@ -3,16 +3,32 @@ class RidesController < ApplicationController
 
   before_action :set_params, only: [:show, :edit, :update, :destroy]
 
+  def index
+    #@rides = Ride.all
+  end
+
   def new
   end
 
   def create
-    @ride = Ride.create(params[:user_id], params[:attraction_id])
+    @ride = Ride.create(user_id: params[:ride])
     if @ride.save
-      redirect_to @users
+      redirect_to user_path()
     else
       render :new
     end
+
+  def show
+  end
+
+  private
+
+  def ride_params
+    params.require(:ride).permit(:user_id, :attraction_id)
+  end
+
+
+
 
   end
 

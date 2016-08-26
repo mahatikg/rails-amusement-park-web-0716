@@ -25,7 +25,8 @@ class UsersController < ApplicationController
 
 
   def show
-
+    authenticate_user
+    @notice = params[:notice]
   end
 
 
@@ -44,13 +45,14 @@ class UsersController < ApplicationController
   # def destroy
   # end
 
-  def mood
-    #if nausea > happiness return "sad"
-    #elsif nausea equal happiness return "go on a ride"
-    #else return "happy"
-  end
+  # def mood
+  #   #if nausea > happiness return "sad"
+  #   #elsif nausea equal happiness return "go on a ride"
+  #   #else return "happy"
+  # end
 
   private
+  
   def set_params
     @user = User.find(params[:id])
    end

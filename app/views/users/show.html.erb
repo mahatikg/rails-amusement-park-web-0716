@@ -1,1 +1,18 @@
-<%=@user.name%>
+<h1>User Information</h1>
+<h3>You are currently signed in as: <%= @user.name %></h3>
+
+<li><h5>Height: <%= @user.height %></h5></li>
+
+<li><h5>Happiness: <%= @user.happiness %></h5></li>
+
+<li><h5>Nausea: <%= @user.nausea %></h5></li>
+
+<li><h5>Tickets: <%= @user.tickets %></h5></li>
+
+<li><h5>Mood: <%= @user.mood %></h5></li>
+
+<li><h5>Admin status: <%= "ADMIN" if @user.admin %></h5></li>
+
+
+<p> <%= link_to('Log Out', signout_path, method: :delete) %> <br> 
+<%= link_to('See attractions', attractions_path) %></p>

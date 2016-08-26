@@ -7,11 +7,13 @@ class User < ActiveRecord::Base
   validates :password_digest, presence: true
 
   def mood
-    if self.nausea > self.happiness
-      "sad"
-    else
-      "happy"
+    if self.user.nausea && self.user.happiness
+      if self.nausea > self.happiness
+        "sad"
+      else
+        "happy"
     end
+  end
   end
 
 end

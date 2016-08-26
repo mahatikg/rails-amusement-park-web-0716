@@ -10,8 +10,7 @@ class AttractionsController < ApplicationController
 
   def create
     @attraction = Attraction.new(attraction_params)
-    if @attraction.save
-      redirect_to @attraction
+    redirect_to attraction_path(@attraction)
     else
       render :new
     end
@@ -19,6 +18,7 @@ class AttractionsController < ApplicationController
   end
 
   def show
+    @ride = Ride.new
 
   end
 
@@ -29,14 +29,15 @@ class AttractionsController < ApplicationController
 
   def update
     @attraction.update(attraction_params)
-        redirect_to @attraction
+        # redirect_to @attraction
     else
-      render :edit
+      # render :edit
     end
   end
 
   def destroy
   end
+  
   private
   def set_params
     @attraction = Attraction.find(params[:id])
